@@ -1,0 +1,9 @@
+services:
+  trading-bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      LOG_FILE: /app/logs/trading_bot.log
