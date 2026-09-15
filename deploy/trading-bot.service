@@ -1,0 +1,18 @@
+[Unit]
+Description=Bot de trading SMA 9/21 sobre Alpaca Paper Trading
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/opt/trading-bot
+EnvironmentFile=/opt/trading-bot/.env
+ExecStart=/opt/trading-bot/.venv/bin/python /opt/trading-bot/main.py
+Restart=always
+RestartSec=30
+StandardOutput=append:/opt/trading-bot/trading_bot.stdout.log
+StandardError=append:/opt/trading-bot/trading_bot.stdout.log
+
+[Install]
+WantedBy=multi-user.target
