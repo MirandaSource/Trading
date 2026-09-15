@@ -9,6 +9,7 @@ Estructura:
 - `broker.py` — acceso a Alpaca (datos, cuenta, órdenes).
 - `main.py` — bucle en vivo cada 15 minutos y modo `--dry-run`.
 - `check_connection.py` — prueba mínima de conexión: balance y posiciones.
+- `resumen.py` — resumen de equity, posiciones abiertas y P&L de las operaciones cerradas.
 - `tests/` — tests unitarios de estrategia y gestión de riesgo (`pytest`).
 
 ## Uso
@@ -18,6 +19,7 @@ pip install -r requirements.txt
 cp .env.example .env    # rellena ALPACA_API_KEY y ALPACA_SECRET_KEY
 python main.py --dry-run   # pre-vuelo: conexión, balance, velas, SMA y sizing, sin órdenes
 python main.py             # bot en vivo (ciclo cada 15 min)
+python resumen.py          # resumen de ganancias/pérdidas (usa --days N)
 pytest -q                  # tests
 ```
 
